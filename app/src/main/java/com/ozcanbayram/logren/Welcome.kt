@@ -21,6 +21,11 @@ class Welcome : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.loginButton.setOnClickListener {
+            val intent = Intent(this@Welcome, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
 
     }
 
