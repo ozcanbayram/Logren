@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.ozcanbayram.logren"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.ozcanbayram.logren"

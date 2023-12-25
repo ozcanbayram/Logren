@@ -1,9 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Logren" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.Logren" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:statusBarColor">#EA4335</item>
     </style>
 
-    <style name="Theme.Logren" parent="Base.Theme.Logren" />
+    <style name="Theme.Logren" parent="Base.Theme.Logren" >
+        <item name="colorPrimary">#EA4335</item>
+    </style>
 </resources>
