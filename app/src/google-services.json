@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "361892761645",
+    "project_id": "logren-f118d",
+    "storage_bucket": "logren-f118d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:361892761645:android:7028e7af15e4411f5428a4",
+        "android_client_info": {
+          "package_name": "com.ozcanbayram.logren"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCR78qVvx9NzK25_GIFZXD7CVZ4VI7ayvo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
