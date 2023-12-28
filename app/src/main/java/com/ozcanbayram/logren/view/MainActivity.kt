@@ -3,11 +3,13 @@ package com.ozcanbayram.logren.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
+import com.ozcanbayram.logren.adapter.TermsAdapter
 import com.ozcanbayram.logren.databinding.ActivityMainBinding
 import com.ozcanbayram.logren.model.Term
 import kotlin.collections.ArrayList
@@ -17,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var db : FirebaseFirestore
     private lateinit var termArrayList : ArrayList<Term>
+    private lateinit var termsAdapter : TermsAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -31,6 +34,11 @@ class MainActivity : AppCompatActivity() {
 
         getData()
 
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        termsAdapter = TermsAdapter(termArrayList)
+        binding.recyclerView.adapter = termsAdapter
+
+
     }
 
     private fun getData(){
@@ -42,16 +50,14 @@ class MainActivity : AppCompatActivity() {
                     if(!value.isEmpty){
                         val documents = value.documents
                         for (document in documents){
-                            val term = document.get("Term") as String
+                            val term = document.get("term") as String
                             val explanation = document.get("explanation") as String
 
-                            println(term)
 
                             val terms = Term(term, explanation )
                             termArrayList.add(terms)
-
-
                         }
+                        termsAdapter.notifyDataSetChanged()
                     }
                 }
             }
