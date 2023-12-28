@@ -1,4 +1,4 @@
-package com.ozcanbayram.logren
+package com.ozcanbayram.logren.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.ozcanbayram.logren.databinding.ActivityLoginBinding
-import com.ozcanbayram.logren.databinding.ActivityWelcomeBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -22,6 +21,8 @@ class LoginActivity : AppCompatActivity() {
 
         // Initialize Firebase Auth
         auth = Firebase.auth
+
+
 
     }
     fun login(view : View){

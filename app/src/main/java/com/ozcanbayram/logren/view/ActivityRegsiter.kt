@@ -1,4 +1,4 @@
-package com.ozcanbayram.logren
+package com.ozcanbayram.logren.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +8,6 @@ import android.widget.Toast
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
-import com.ozcanbayram.logren.databinding.ActivityWelcomeBinding
 import com.ozcanbayram.logren.databinding.ActivityRegsiterBinding
 
 class ActivityRegsiter : AppCompatActivity() {
@@ -39,7 +38,7 @@ class ActivityRegsiter : AppCompatActivity() {
             auth.createUserWithEmailAndPassword(email,password).addOnSuccessListener { authResult ->
                 val newuser =authResult.user
                 Toast.makeText(this@ActivityRegsiter,"Kayıt Başarılı. Giriş Yapabilirsiniz.",Toast.LENGTH_LONG).show()
-                val intent = Intent(this@ActivityRegsiter,LoginActivity::class.java)
+                val intent = Intent(this@ActivityRegsiter, LoginActivity::class.java)
                 startActivity(intent)
             }.addOnFailureListener {
                 Toast.makeText(this@ActivityRegsiter, it.localizedMessage, Toast.LENGTH_LONG).show()
