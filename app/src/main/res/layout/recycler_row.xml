@@ -5,13 +5,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
-        <TextView
-            android:id="@+id/termName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:text="Ad Soyad"
-            android:textColor="@color/black"
-            android:textSize="25sp" />
-    </LinearLayout>
+    android:orientation="vertical"
+    android:layout_marginLeft="8dp"
+    android:layout_margin="0dp">
+
+    <TextView
+        android:id="@+id/termName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:text="Test"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D8D6D6"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16sp"
+        ></View>
+
+</LinearLayout>

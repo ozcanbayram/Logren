@@ -8,6 +8,7 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.firestore
 import com.ozcanbayram.logren.adapter.TermsAdapter
 import com.ozcanbayram.logren.databinding.ActivityMainBinding
@@ -34,6 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         getData()
 
+
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         termsAdapter = TermsAdapter(termArrayList)
         binding.recyclerView.adapter = termsAdapter
@@ -42,7 +44,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getData(){
-        db.collection("Terms").addSnapshotListener { value, error ->
+        db.collection("Terms").orderBy("term", Query.Direction.ASCENDING).addSnapshotListener { value, error ->
             if(error != null){
                 Toast.makeText(this@MainActivity,error.localizedMessage,Toast.LENGTH_LONG).show()
             }else{
