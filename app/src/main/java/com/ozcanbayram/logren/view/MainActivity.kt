@@ -1,7 +1,10 @@
 package com.ozcanbayram.logren.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.Firebase
@@ -10,6 +13,7 @@ import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.firestore
+import com.ozcanbayram.logren.R
 import com.ozcanbayram.logren.adapter.TermsAdapter
 import com.ozcanbayram.logren.databinding.ActivityMainBinding
 import com.ozcanbayram.logren.model.Term
@@ -41,6 +45,24 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.adapter = termsAdapter
 
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val menuInflater = menuInflater
+        menuInflater.inflate(R.menu.main_menu,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if(item.itemId == R.id.log_out){
+            auth.signOut()
+            val intent = Intent(this, Welcome::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     private fun getData(){
