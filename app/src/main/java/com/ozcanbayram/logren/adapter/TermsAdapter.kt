@@ -1,8 +1,10 @@
 package com.ozcanbayram.logren.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.ozcanbayram.logren.Details
 import com.ozcanbayram.logren.databinding.RecyclerRowBinding
 import com.ozcanbayram.logren.model.Term
 
@@ -22,5 +24,13 @@ class TermsAdapter(private val termList : ArrayList<Term>) : RecyclerView.Adapte
 
     override fun onBindViewHolder(holder: TermsViewHolder, position: Int) {
         holder.binding.termName.text =termList.get(position).term
+
+        holder.binding.recyclerRow.setOnClickListener {
+            val intent = Intent(holder.itemView.context, Details::class.java)
+            intent.putExtra("term",termList.get(position).term)
+            intent.putExtra("explanation",termList.get(position).explanation)
+            holder.itemView.context.startActivity(intent)
+        }
+
     }
 }
